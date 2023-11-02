@@ -19,6 +19,7 @@ function adicionarItem(item) {
   valorTotal[item] = Number.parseFloat(valorProduto[item]) * qtd[item]
   quantidade.innerHTML = qtd[item] //quantidade será mostrada no array
   total.innerHTML = valorTotal[item].toFixed(2)
+  valorCompra()
 }
 
 //Removendo um item
@@ -30,5 +31,24 @@ function removerItem(item){
     quantidade.innerHTML = qtd[item] //quantidade será mostrada no array
     valorTotal[item] = Number.parseFloat(valorProduto[item]) * qtd[item]
     total.innerHTML = valorTotal[item].toFixed(2)
+    valorCompra()
   }
+}
+
+/*
+Valor Total de Compra - 
+Executar um loop no array valorTotal para encontrar o valor de compra
+*/
+
+function valorCompra(){
+
+  let valorTotalCompra = document.getElementById('valorTotalCompra')
+  let valor = 0 //iniciando variavel zerado
+
+  for(let i = 0; i < valorTotal.length; i++){
+          valor += valorTotal[i]
+  }
+
+  valorTotalCompra.innerHTML = valor.toFixed(2)
+
 }
